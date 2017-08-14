@@ -1,0 +1,60 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.movie__stars {
+  display: flex;
+  justify-content: center;
+}
+
+.movie__stars input {
+  display: none;
+}
+
+.movie__stars input:checked {
+  display: none;
+}
+
+.movie__stars input:checked ~ label {
+  color: #F7C873;
+}
+
+.movie__stars input + label {
+  font-size: 0;
+}
+
+.movie__stars input + label:before {
+  content: '★';
+  font-size: 2rem;
+}
+
+.movie__stars input + label[for="star5"] { order: 5 }
+.movie__stars input + label[for="star4"] { order: 4 }
+.movie__stars input + label[for="star3"] { order: 3 }
+.movie__stars input + label[for="star2"] { order: 2 }
+.movie__stars input + label[for="star1"] { order: 1 }
+
+.movie__stars input + label:hover {
+  color: #F7C873;
+}
