@@ -1,5 +1,55 @@
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background: linear-gradient(135deg, #142468 0%, #1d667c 50%, #553d72 100%);
+  color: #eee;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+h2 {
+  margin: 2rem 0;
+  font-size: 2.5rem;
+  font-weight: 300;
+  border-bottom: 12px solid rgba(186, 25, 187, 0.75);
+  display: inline-block;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+}
+
+input[type="submit"] {
+  display: block;
+  border: 1px solid #eee;
+  color: inherit;
+  background: transparent;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  max-width: 150px;
+  margin: 0 auto;
+  padding: 0.5rem;
+}
+
+input[type="text"] {
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-family: inherit;
+  width: 100%;
+  max-width: 300px;
+}
+
 .App {
   text-align: center;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0.5rem;
 }
 
 .App-logo {
@@ -16,45 +66,4 @@
 
 .App-intro {
   font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.movie__stars {
-  display: flex;
-  justify-content: center;
-}
-
-.movie__stars input {
-  display: none;
-}
-
-.movie__stars input:checked {
-  display: none;
-}
-
-.movie__stars input:checked ~ label {
-  color: #F7C873;
-}
-
-.movie__stars input + label {
-  font-size: 0;
-}
-
-.movie__stars input + label:before {
-  content: '★';
-  font-size: 2rem;
-}
-
-.movie__stars input + label[for="star5"] { order: 5 }
-.movie__stars input + label[for="star4"] { order: 4 }
-.movie__stars input + label[for="star3"] { order: 3 }
-.movie__stars input + label[for="star2"] { order: 2 }
-.movie__stars input + label[for="star1"] { order: 1 }
-
-.movie__stars input + label:hover {
-  color: #F7C873;
 }

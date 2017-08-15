@@ -1,0 +1,10 @@
+.MovieForm {
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 340px;
+  margin: 1rem auto;
+}
+
+.MovieForm .Stars {
+  margin: 1rem 0;
+}

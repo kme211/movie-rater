@@ -1,0 +1,11 @@
+.MovieList {
+  list-style-type: none;
+}
+
+.Movie {
+  margin-bottom: 1rem;
+}
+
+.Movie__name {
+  font-size: 2rem;
+}
