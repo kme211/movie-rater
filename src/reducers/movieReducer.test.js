@@ -16,10 +16,15 @@ describe("movie reducer", () => {
     };
 
     const expectedState = {
+      currentMovie: {
+        id: "",
+        name: "",
+        rating: 0
+      },
       movies: [
+        { id: 3, name: "Donnie Darko", rating: 4 },
         { id: 1, name: "Jurassic Park", rating: 5 },
-        { id: 2, name: "Finding Nemo", rating: 4 },
-        { id: 3, name: "Donnie Darko", rating: 4 }
+        { id: 2, name: "Finding Nemo", rating: 4 }
       ]
     };
 
@@ -31,7 +36,47 @@ describe("movie reducer", () => {
     expect(result).toEqual(expectedState);
   });
 
-  // test("removes a movie", () => {
+  test("changes a movie rating", () => {
+    const startState = {
+      movies: [
+        { id: 1, name: "Jurassic Park", rating: 5 },
+        { id: 2, name: "Finding Nemo", rating: 4 }
+      ]
+    };
 
-  // })
+    const expectedState = {
+      movies: [
+        { id: 1, name: "Jurassic Park", rating: 5 },
+        { id: 2, name: "Finding Nemo", rating: 5 }
+      ]
+    };
+
+    const result = reducer(startState, {
+      type: types.RATE_MOVIE,
+      id: 2,
+      rating: 5
+    });
+
+    expect(result).toEqual(expectedState);
+  });
+
+  test("deletes a movie", () => {
+    const startState = {
+      movies: [
+        { id: 1, name: "Jurassic Park", rating: 5 },
+        { id: 2, name: "Finding Nemo", rating: 4 }
+      ]
+    };
+
+    const expectedState = {
+      movies: [{ id: 1, name: "Jurassic Park", rating: 5 }]
+    };
+
+    const result = reducer(startState, {
+      type: types.DELETE_MOVIE,
+      id: 2
+    });
+
+    expect(result).toEqual(expectedState);
+  });
 });

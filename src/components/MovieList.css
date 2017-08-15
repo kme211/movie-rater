@@ -1,11 +1,13 @@
+.MovieLists {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.MovieLists > div {
+  flex: 1;
+}
+
 .MovieList {
   list-style-type: none;
-}
-
-.Movie {
-  margin-bottom: 1rem;
-}
-
-.Movie__name {
-  font-size: 2rem;
 }

@@ -1,11 +1,10 @@
 import * as types from "../actions/actionTypes";
-import cuid from "cuid";
 
 const initialState = {
   movies: [
     {
       id: 1,
-      name: "Mission Impossible",
+      name: "Midnight Meat Train",
       rating: 4
     },
     {
@@ -14,7 +13,7 @@ const initialState = {
       rating: 5
     }
   ],
-  currentMovie: { id: cuid(), name: "", rating: null }
+  currentMovie: { id: "", name: "", rating: 0 }
 };
 
 export default function movieReducer(state = initialState, action) {
@@ -28,16 +27,16 @@ export default function movieReducer(state = initialState, action) {
     case types.ADD_MOVIE: {
       return {
         ...state,
-        movies: [...state.movies, Object.assign({}, action.movie)],
+        movies: [Object.assign({}, action.movie), ...state.movies],
         currentMovie: {
-          id: cuid(),
+          id: "",
           name: "",
-          rating: null
+          rating: 0
         }
       };
     }
     case types.DELETE_MOVIE: {
-      const index = state.findIndex(movie => movie.id === action.id);
+      const index = state.movies.findIndex(movie => movie.id === action.id);
       return {
         ...state,
         movies: [
@@ -54,7 +53,7 @@ export default function movieReducer(state = initialState, action) {
         movies: [
           ...state.movies.slice(0, index),
           Object.assign({}, movie, { rating: action.rating }),
-          ...state.slice(index + 1)
+          ...state.movies.slice(index + 1)
         ]
       };
     }

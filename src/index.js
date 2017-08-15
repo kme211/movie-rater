@@ -13,15 +13,4 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-setTimeout(() => {
-  store.dispatch({
-    type: "ADD_MOVIE",
-    movie: {
-      id: 5,
-      name: "Midnight Meat Train",
-      rating: 4
-    }
-  });
-}, 1000);
-
 registerServiceWorker();

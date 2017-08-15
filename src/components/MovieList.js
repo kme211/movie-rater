@@ -1,19 +1,45 @@
 import React from "react";
 import "./MovieList.css";
-import Stars from "./Stars";
-import kebabCase from "lodash/kebabCase";
+import { connect } from "react-redux";
+import { rateMovie, deleteMovie } from "../actions/movieActions";
+import Movie from "./MovieListItem";
 
-const Movie = props =>
-  <li className="Movie">
-    <div className="Movie__name">
-      {props.name}
+const MovieList = ({ queue, watchedList, rateMovie, deleteMovie }) => {
+  return (
+    <div className="MovieLists">
+      <div>
+        <h2>Queue</h2>
+        <ul className="MovieList">
+          {queue.map(movie => {
+            return <Movie key={movie.id} {...movie} rateMovie={rateMovie} />;
+          })}
+        </ul>
+      </div>
+
+      <div>
+        <h2>Watched</h2>
+        <ul className="MovieList">
+          {watchedList.map(movie => {
+            return (
+              <Movie
+                key={movie.id}
+                {...movie}
+                rateMovie={rateMovie}
+                deleteMovie={deleteMovie}
+              />
+            );
+          })}
+        </ul>
+      </div>
     </div>
-    <Stars rating={props.rating} name={`${kebabCase(props.name)}-rating`} />
-  </li>;
+  );
+};
 
-export default ({ movies }) =>
-  <ul className="MovieList">
-    {movies.map(movie => {
-      return <Movie key={movie.id} {...movie} />;
-    })}
-  </ul>;
+const mapStateToProps = state => ({
+  queue: state.movies.filter(movie => movie.rating === 0),
+  watchedList: state.movies.filter(movie => movie.rating > 0)
+});
+
+const mapDispatchToProps = { rateMovie, deleteMovie };
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieList);
