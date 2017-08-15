@@ -11,3 +11,8 @@
 .MovieList {
   list-style-type: none;
 }
+
+.list-placeholder {
+  width: 35%;
+  opacity: 0.65;
+}

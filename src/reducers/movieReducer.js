@@ -1,23 +1,18 @@
 import * as types from "../actions/actionTypes";
 
 const initialState = {
-  movies: [
-    {
-      id: 1,
-      name: "Midnight Meat Train",
-      rating: 4
-    },
-    {
-      id: 2,
-      name: "Stranger Things",
-      rating: 5
-    }
-  ],
+  movies: [],
   currentMovie: { id: "", name: "", rating: 0 }
 };
 
 export default function movieReducer(state = initialState, action) {
   switch (action.type) {
+    case types.LOAD_MOVIES: {
+      return {
+        ...state,
+        movies: [...state.movies, ...action.movies]
+      };
+    }
     case types.UPDATE_CURRENT: {
       return {
         ...state,

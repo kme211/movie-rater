@@ -37,7 +37,8 @@ class MovieForm extends Component {
         />
         <input
           style={{
-            visibility: currentMovie.name.length > 0 ? "visible" : "hidden"
+            visibility: currentMovie.name.length > 0 ? "visible" : "hidden",
+            opacity: currentMovie.name.length > 0 ? 1 : 0
           }}
           type="submit"
           value={

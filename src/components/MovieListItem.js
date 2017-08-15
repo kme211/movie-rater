@@ -6,7 +6,7 @@ import "./MovieListItem.css";
 import svg from "../icons/trash.svg";
 
 class MovieListItem extends Component {
-  propTypes = {
+  static propTypes = {
     rateMovie: PropTypes.func.isRequired,
     deleteMovie: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,

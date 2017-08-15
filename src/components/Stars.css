@@ -25,6 +25,6 @@
   font-size: 2rem;
 }
 
-.Stars input + label:hover {
+.Stars input + label:hover ~ label, .Stars input + label:hover {
   color: #f7c873;
 }

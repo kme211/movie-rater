@@ -1,3 +1,4 @@
+export const LOAD_MOVIES = "LOAD_MOVIES";
 export const UPDATE_CURRENT = "UPDATE_CURRENT";
 export const ADD_MOVIE = "ADD_MOVIE";
 export const DELETE_MOVIE = "DELETE_MOVIE";
